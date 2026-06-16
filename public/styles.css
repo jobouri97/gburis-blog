@@ -88,3 +88,17 @@ body {
 main {
   flex: 1;
 }
+
+.empty-state {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.empty-state h1 {
+  color: #6c757d;
+  font-size: 3rem;
+  font-weight: 700;
+}
