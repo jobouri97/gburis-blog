@@ -14,12 +14,7 @@ app.get("/goToLinkedIn", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  //res.render("index.ejs", { blogs });
-  res.render("addBlog.ejs", {
-    editMode: false,
-    blog: null,
-    id: null,
-  });
+  res.render("index.ejs", { blogs });
 });
 
 // GET

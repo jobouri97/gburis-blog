@@ -2,7 +2,7 @@
     <%- include("partials/header") %>
 
         <main class="container mt-5">
-            <% if (locals.blogs) { %>
+            <% if (locals.blogs && blogs.length > 0) { %>
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 
                     <% blogs.forEach(function(blog, index) { %>
