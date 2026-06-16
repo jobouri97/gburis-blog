@@ -1,0 +1,38 @@
+<body>
+  <%- include("partials/header") %>
+
+    <main class="form-page">
+      <h1>
+        <%= editMode ? "Edit Blog" : "Add Blog" %>
+      </h1>
+
+      <form action="<%= editMode ? '/edit/' + id : '/submitBlog' %>" method="POST">
+        <div class="form-group">
+          <label for="author">Author Name</label>
+          <input type="text" id="author" name="author" value="<%= locals.blog ? blog.author : '' %>"
+            placeholder="Enter author name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="title">Blog Title</label>
+          <input type="text" id="title" name="title" value="<%= locals.blog ? blog.title : '' %>"
+            placeholder="Enter blog title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="details">Blog Details</label>
+          <textarea id="details" name="details" placeholder="Write your blog here..."
+            required><%= locals.blog ? blog.details : '' %></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            <%= editMode ? "Save Edits" : "Add Blog" %>
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <footer><%- include("partials/footer") %></footer>
+
+</body>
