@@ -14,7 +14,8 @@ app.get("/goToLinkedIn", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", { blogs });
+  //res.render("index.ejs", { blogs });
+  res.send("HELLO FROM EXPRESS");
 });
 
 // GET
@@ -22,7 +23,7 @@ app.get("/addBlog", (req, res) => {
   res.render("addBlog.ejs", {
     editMode: false,
     blog: null,
-    id: null
+    id: null,
   });
 });
 
