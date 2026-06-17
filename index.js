@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
   });
 });
 
-// GET
 app.get("/addBlog", (req, res) => {
   res.render("addBlog.ejs", {
     editMode: false,
@@ -25,7 +24,6 @@ app.get("/addBlog", (req, res) => {
   });
 });
 
-// GET (Edit blog)
 app.get("/edit/:id", (req, res) => {
   const id = req.params.id;
   const blog = blogs[id];
