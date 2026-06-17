@@ -8,13 +8,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-// GET (linked in)
-app.get("/goToLinkedIn", (req, res) => {
-  res.redirect("https://www.linkedin.com/in/ali-al-jobouri-09bbb53bb");
-});
-
 app.get("/", (req, res) => {
-  res.render("index.ejs", { blogs });
+  res.render("index.ejs", {
+    currentPage: "home",
+    blogs,
+  });
 });
 
 // GET
@@ -23,27 +21,38 @@ app.get("/addBlog", (req, res) => {
     editMode: false,
     blog: null,
     id: null,
+    currentPage: "addBlog",
   });
 });
 
 // GET (Edit blog)
 app.get("/edit/:id", (req, res) => {
   const id = req.params.id;
-  console.log(id);
+  const blog = blogs[id];
 
-  res.render("addBlog", {
-    blog: blogs[id],
-    editMode: true,
+  if (!blog) {
+    return res.redirect("/");
+  }
+
+  res.render("addBlog.ejs", {
+    blog: blog,
     id: id,
+    editMode: true,
+    currentPage: "addBlog",
   });
 });
 
-// GET (View blog)
 app.get("/view/:id", (req, res) => {
   const id = req.params.id;
+  const blog = blogs[id];
+
+  if (!blog) {
+    return res.redirect("/");
+  }
 
   res.render("viewBlog.ejs", {
-    blog: blogs[id],
+    blog: blog,
+    currentPage: "viewBlog",
   });
 });
 

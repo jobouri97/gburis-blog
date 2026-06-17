@@ -4,15 +4,17 @@
         <main class="container mt-5">
             <% if(locals.blogs && blogs.length===0) { %>
                 <div class="empty-state">
-                    <h1> No blogs yet. Please add a blog.</h1>
+                    <h1>No blogs yet.</h1>
+                    <p>Start by creating your first blog post.</p>
+                    <a href="/addBlog" class="btn btn-primary">Add Blog</a>
                 </div>
                 <% } %>
                     <% if (locals.blogs && blogs.length> 0) { %>
                         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 
                             <% blogs.forEach(function(blog, index) { %>
-                                <div class="col">
-                                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                                <div class="col mb-4">
+                                    <div class="card mb-2 rounded-3 shadow-sm border-primary">
                                         <div class="card-header py-3 text-bg-primary border-primary">
                                             <h4 class="my-0 fw-normal">
                                                 <%= blog.author %>
@@ -40,6 +42,6 @@
                         </div>
                         <% } %>
         </main>
-        <footer><%- include("partials/footer") %></footer>
+    <%- include("partials/footer") %>
 
 </body>
